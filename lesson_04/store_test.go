@@ -8,9 +8,9 @@ import (
 func TestStore_CreateCollection(t *testing.T) {
 	store := NewStore()
 
-	cfg := &CollectionConfig{PrimaryKey: "id"}
+	cfg := CollectionConfig{PrimaryKey: "id"}
 
-	created, col := store.CreateCollection("users", cfg)
+	created, col := store.CreateCollection("users", &cfg)
 	if !created {
 		t.Fatalf("expected collection to be created on first call")
 	}
@@ -21,7 +21,7 @@ func TestStore_CreateCollection(t *testing.T) {
 		t.Fatalf("expected collection config PrimaryKey to be 'id', got %q", col.config.PrimaryKey)
 	}
 
-	createdAgain, colAgain := store.CreateCollection("users", cfg)
+	createdAgain, colAgain := store.CreateCollection("users", &cfg)
 	if createdAgain {
 		t.Fatalf("expected second CreateCollection with same name to return false")
 	}
@@ -32,9 +32,9 @@ func TestStore_CreateCollection(t *testing.T) {
 
 func TestStore_GetAndDeleteCollection(t *testing.T) {
 	store := NewStore()
-	cfg := &CollectionConfig{PrimaryKey: "id"}
+	cfg := CollectionConfig{PrimaryKey: "id"}
 
-	store.CreateCollection("users", cfg)
+	store.CreateCollection("users", &cfg)
 
 	col, ok := store.GetCollection("users")
 	if !ok {
@@ -59,9 +59,9 @@ func TestStore_GetAndDeleteCollection(t *testing.T) {
 
 func TestStore_Collection_DocumentFlow(t *testing.T) {
 	store := NewStore()
-	cfg := &CollectionConfig{PrimaryKey: "id"}
+	cfg := CollectionConfig{PrimaryKey: "id"}
 
-	created, col := store.CreateCollection("users", cfg)
+	created, col := store.CreateCollection("users", &cfg)
 	if !created || col == nil {
 		t.Fatalf("failed to create collection 'users'")
 	}

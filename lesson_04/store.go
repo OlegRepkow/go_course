@@ -14,6 +14,11 @@ func (s *Store) CreateCollection(name string, config *CollectionConfig) (bool, *
 	if _, exists := s.collections[name]; exists {
 		return false, nil
 	}
+
+	if config == nil {
+		return false, nil
+	}
+
 	s.collections[name] = &Collection{
 		documents: make(map[string]*Document),
 		config:    *config,
