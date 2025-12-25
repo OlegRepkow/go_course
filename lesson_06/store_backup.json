@@ -1,0 +1,47 @@
+{
+    "collections": {
+        "users": {
+            "config": {
+                "PrimaryKey": "id"
+            },
+            "documents": {
+                "1234567891": {
+                    "Fields": {
+                        "id": {
+                            "Type": "string",
+                            "Value": "1234567891"
+                        },
+                        "name": {
+                            "Type": "string",
+                            "Value": "Jane Test"
+                        }
+                    }
+                },
+                "1234567892": {
+                    "Fields": {
+                        "id": {
+                            "Type": "string",
+                            "Value": "1234567892"
+                        },
+                        "name": {
+                            "Type": "string",
+                            "Value": "Jane Test2"
+                        }
+                    }
+                },
+                "1234567893": {
+                    "Fields": {
+                        "id": {
+                            "Type": "string",
+                            "Value": "1234567893"
+                        },
+                        "name": {
+                            "Type": "string",
+                            "Value": "Jane Test3"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
